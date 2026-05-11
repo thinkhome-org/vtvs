@@ -1,5 +1,6 @@
-import { HeadContent, Outlet, Scripts, createRootRoute } from '@tanstack/react-router'
+import { HeadContent, Outlet, Scripts, createRootRoute, useRouterState } from '@tanstack/react-router'
 import { useState } from 'react'
+import { pathnameLocale } from '../lib/localePaths'
 import CookieConsentBanner from '../components/CookieConsentBanner'
 import { MobileNavOverlay } from '../components/MobileNavOverlay'
 import { MobileTopBar } from '../components/MobileTopBar'
@@ -33,8 +34,9 @@ export const Route = createRootRoute({
 
 function RootDocument() {
   const [navOpen, setNavOpen] = useState(false)
+  const pathname = useRouterState({ select: (s) => s.location.pathname })
   return (
-    <html lang="cs">
+    <html lang={pathnameLocale(pathname)}>
       <head>
         <HeadContent />
         <span
@@ -53,13 +55,10 @@ function RootDocument() {
         <div className="app-shell">
           <SiteSidebar />
           <div className="content-column">
-            <div className="page-transition-scope">
-              <main id="main" className="page-outlet">
-                <Outlet />
-              </main>
-              <SiteFooter />
-            </div>
-            <div className="nav-curtain" aria-hidden="true" />
+            <main id="main" className="page-outlet">
+              <Outlet />
+            </main>
+            <SiteFooter />
           </div>
         </div>
         <CookieConsentBanner />

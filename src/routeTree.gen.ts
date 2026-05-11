@@ -18,8 +18,18 @@ import { Route as EnRouteImport } from './routes/en'
 import { Route as CenikRouteImport } from './routes/cenik'
 import { Route as BulletinRouteImport } from './routes/bulletin'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as EnIndexRouteImport } from './routes/en.index'
 import { Route as BulletinIndexRouteImport } from './routes/bulletin.index'
+import { Route as EnSluzbyRouteImport } from './routes/en.sluzby'
+import { Route as EnPodporujemeRouteImport } from './routes/en.podporujeme'
+import { Route as EnOvereniDicRouteImport } from './routes/en.overeni-dic'
+import { Route as EnOdkazyRouteImport } from './routes/en.odkazy'
+import { Route as EnKontaktRouteImport } from './routes/en.kontakt'
+import { Route as EnCenikRouteImport } from './routes/en.cenik'
+import { Route as EnBulletinRouteImport } from './routes/en.bulletin'
 import { Route as BulletinIdRouteImport } from './routes/bulletin.$id'
+import { Route as EnBulletinIndexRouteImport } from './routes/en.bulletin.index'
+import { Route as EnBulletinIdRouteImport } from './routes/en.bulletin.$id'
 
 const SluzbyRoute = SluzbyRouteImport.update({
   id: '/sluzby',
@@ -66,55 +76,133 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EnIndexRoute = EnIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => EnRoute,
+} as any)
 const BulletinIndexRoute = BulletinIndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => BulletinRoute,
+} as any)
+const EnSluzbyRoute = EnSluzbyRouteImport.update({
+  id: '/sluzby',
+  path: '/sluzby',
+  getParentRoute: () => EnRoute,
+} as any)
+const EnPodporujemeRoute = EnPodporujemeRouteImport.update({
+  id: '/podporujeme',
+  path: '/podporujeme',
+  getParentRoute: () => EnRoute,
+} as any)
+const EnOvereniDicRoute = EnOvereniDicRouteImport.update({
+  id: '/overeni-dic',
+  path: '/overeni-dic',
+  getParentRoute: () => EnRoute,
+} as any)
+const EnOdkazyRoute = EnOdkazyRouteImport.update({
+  id: '/odkazy',
+  path: '/odkazy',
+  getParentRoute: () => EnRoute,
+} as any)
+const EnKontaktRoute = EnKontaktRouteImport.update({
+  id: '/kontakt',
+  path: '/kontakt',
+  getParentRoute: () => EnRoute,
+} as any)
+const EnCenikRoute = EnCenikRouteImport.update({
+  id: '/cenik',
+  path: '/cenik',
+  getParentRoute: () => EnRoute,
+} as any)
+const EnBulletinRoute = EnBulletinRouteImport.update({
+  id: '/bulletin',
+  path: '/bulletin',
+  getParentRoute: () => EnRoute,
 } as any)
 const BulletinIdRoute = BulletinIdRouteImport.update({
   id: '/$id',
   path: '/$id',
   getParentRoute: () => BulletinRoute,
 } as any)
+const EnBulletinIndexRoute = EnBulletinIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => EnBulletinRoute,
+} as any)
+const EnBulletinIdRoute = EnBulletinIdRouteImport.update({
+  id: '/$id',
+  path: '/$id',
+  getParentRoute: () => EnBulletinRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/bulletin': typeof BulletinRouteWithChildren
   '/cenik': typeof CenikRoute
-  '/en': typeof EnRoute
+  '/en': typeof EnRouteWithChildren
   '/kontakt': typeof KontaktRoute
   '/odkazy': typeof OdkazyRoute
   '/overeni-dic': typeof OvereniDicRoute
   '/podporujeme': typeof PodporujemeRoute
   '/sluzby': typeof SluzbyRoute
   '/bulletin/$id': typeof BulletinIdRoute
+  '/en/bulletin': typeof EnBulletinRouteWithChildren
+  '/en/cenik': typeof EnCenikRoute
+  '/en/kontakt': typeof EnKontaktRoute
+  '/en/odkazy': typeof EnOdkazyRoute
+  '/en/overeni-dic': typeof EnOvereniDicRoute
+  '/en/podporujeme': typeof EnPodporujemeRoute
+  '/en/sluzby': typeof EnSluzbyRoute
   '/bulletin/': typeof BulletinIndexRoute
+  '/en/': typeof EnIndexRoute
+  '/en/bulletin/$id': typeof EnBulletinIdRoute
+  '/en/bulletin/': typeof EnBulletinIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/cenik': typeof CenikRoute
-  '/en': typeof EnRoute
   '/kontakt': typeof KontaktRoute
   '/odkazy': typeof OdkazyRoute
   '/overeni-dic': typeof OvereniDicRoute
   '/podporujeme': typeof PodporujemeRoute
   '/sluzby': typeof SluzbyRoute
   '/bulletin/$id': typeof BulletinIdRoute
+  '/en/cenik': typeof EnCenikRoute
+  '/en/kontakt': typeof EnKontaktRoute
+  '/en/odkazy': typeof EnOdkazyRoute
+  '/en/overeni-dic': typeof EnOvereniDicRoute
+  '/en/podporujeme': typeof EnPodporujemeRoute
+  '/en/sluzby': typeof EnSluzbyRoute
   '/bulletin': typeof BulletinIndexRoute
+  '/en': typeof EnIndexRoute
+  '/en/bulletin/$id': typeof EnBulletinIdRoute
+  '/en/bulletin': typeof EnBulletinIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/bulletin': typeof BulletinRouteWithChildren
   '/cenik': typeof CenikRoute
-  '/en': typeof EnRoute
+  '/en': typeof EnRouteWithChildren
   '/kontakt': typeof KontaktRoute
   '/odkazy': typeof OdkazyRoute
   '/overeni-dic': typeof OvereniDicRoute
   '/podporujeme': typeof PodporujemeRoute
   '/sluzby': typeof SluzbyRoute
   '/bulletin/$id': typeof BulletinIdRoute
+  '/en/bulletin': typeof EnBulletinRouteWithChildren
+  '/en/cenik': typeof EnCenikRoute
+  '/en/kontakt': typeof EnKontaktRoute
+  '/en/odkazy': typeof EnOdkazyRoute
+  '/en/overeni-dic': typeof EnOvereniDicRoute
+  '/en/podporujeme': typeof EnPodporujemeRoute
+  '/en/sluzby': typeof EnSluzbyRoute
   '/bulletin/': typeof BulletinIndexRoute
+  '/en/': typeof EnIndexRoute
+  '/en/bulletin/$id': typeof EnBulletinIdRoute
+  '/en/bulletin/': typeof EnBulletinIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -129,19 +217,37 @@ export interface FileRouteTypes {
     | '/podporujeme'
     | '/sluzby'
     | '/bulletin/$id'
+    | '/en/bulletin'
+    | '/en/cenik'
+    | '/en/kontakt'
+    | '/en/odkazy'
+    | '/en/overeni-dic'
+    | '/en/podporujeme'
+    | '/en/sluzby'
     | '/bulletin/'
+    | '/en/'
+    | '/en/bulletin/$id'
+    | '/en/bulletin/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/cenik'
-    | '/en'
     | '/kontakt'
     | '/odkazy'
     | '/overeni-dic'
     | '/podporujeme'
     | '/sluzby'
     | '/bulletin/$id'
+    | '/en/cenik'
+    | '/en/kontakt'
+    | '/en/odkazy'
+    | '/en/overeni-dic'
+    | '/en/podporujeme'
+    | '/en/sluzby'
     | '/bulletin'
+    | '/en'
+    | '/en/bulletin/$id'
+    | '/en/bulletin'
   id:
     | '__root__'
     | '/'
@@ -154,14 +260,24 @@ export interface FileRouteTypes {
     | '/podporujeme'
     | '/sluzby'
     | '/bulletin/$id'
+    | '/en/bulletin'
+    | '/en/cenik'
+    | '/en/kontakt'
+    | '/en/odkazy'
+    | '/en/overeni-dic'
+    | '/en/podporujeme'
+    | '/en/sluzby'
     | '/bulletin/'
+    | '/en/'
+    | '/en/bulletin/$id'
+    | '/en/bulletin/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BulletinRoute: typeof BulletinRouteWithChildren
   CenikRoute: typeof CenikRoute
-  EnRoute: typeof EnRoute
+  EnRoute: typeof EnRouteWithChildren
   KontaktRoute: typeof KontaktRoute
   OdkazyRoute: typeof OdkazyRoute
   OvereniDicRoute: typeof OvereniDicRoute
@@ -234,6 +350,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/en/': {
+      id: '/en/'
+      path: '/'
+      fullPath: '/en/'
+      preLoaderRoute: typeof EnIndexRouteImport
+      parentRoute: typeof EnRoute
+    }
     '/bulletin/': {
       id: '/bulletin/'
       path: '/'
@@ -241,12 +364,75 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BulletinIndexRouteImport
       parentRoute: typeof BulletinRoute
     }
+    '/en/sluzby': {
+      id: '/en/sluzby'
+      path: '/sluzby'
+      fullPath: '/en/sluzby'
+      preLoaderRoute: typeof EnSluzbyRouteImport
+      parentRoute: typeof EnRoute
+    }
+    '/en/podporujeme': {
+      id: '/en/podporujeme'
+      path: '/podporujeme'
+      fullPath: '/en/podporujeme'
+      preLoaderRoute: typeof EnPodporujemeRouteImport
+      parentRoute: typeof EnRoute
+    }
+    '/en/overeni-dic': {
+      id: '/en/overeni-dic'
+      path: '/overeni-dic'
+      fullPath: '/en/overeni-dic'
+      preLoaderRoute: typeof EnOvereniDicRouteImport
+      parentRoute: typeof EnRoute
+    }
+    '/en/odkazy': {
+      id: '/en/odkazy'
+      path: '/odkazy'
+      fullPath: '/en/odkazy'
+      preLoaderRoute: typeof EnOdkazyRouteImport
+      parentRoute: typeof EnRoute
+    }
+    '/en/kontakt': {
+      id: '/en/kontakt'
+      path: '/kontakt'
+      fullPath: '/en/kontakt'
+      preLoaderRoute: typeof EnKontaktRouteImport
+      parentRoute: typeof EnRoute
+    }
+    '/en/cenik': {
+      id: '/en/cenik'
+      path: '/cenik'
+      fullPath: '/en/cenik'
+      preLoaderRoute: typeof EnCenikRouteImport
+      parentRoute: typeof EnRoute
+    }
+    '/en/bulletin': {
+      id: '/en/bulletin'
+      path: '/bulletin'
+      fullPath: '/en/bulletin'
+      preLoaderRoute: typeof EnBulletinRouteImport
+      parentRoute: typeof EnRoute
+    }
     '/bulletin/$id': {
       id: '/bulletin/$id'
       path: '/$id'
       fullPath: '/bulletin/$id'
       preLoaderRoute: typeof BulletinIdRouteImport
       parentRoute: typeof BulletinRoute
+    }
+    '/en/bulletin/': {
+      id: '/en/bulletin/'
+      path: '/'
+      fullPath: '/en/bulletin/'
+      preLoaderRoute: typeof EnBulletinIndexRouteImport
+      parentRoute: typeof EnBulletinRoute
+    }
+    '/en/bulletin/$id': {
+      id: '/en/bulletin/$id'
+      path: '/$id'
+      fullPath: '/en/bulletin/$id'
+      preLoaderRoute: typeof EnBulletinIdRouteImport
+      parentRoute: typeof EnBulletinRoute
     }
   }
 }
@@ -265,11 +451,49 @@ const BulletinRouteWithChildren = BulletinRoute._addFileChildren(
   BulletinRouteChildren,
 )
 
+interface EnBulletinRouteChildren {
+  EnBulletinIdRoute: typeof EnBulletinIdRoute
+  EnBulletinIndexRoute: typeof EnBulletinIndexRoute
+}
+
+const EnBulletinRouteChildren: EnBulletinRouteChildren = {
+  EnBulletinIdRoute: EnBulletinIdRoute,
+  EnBulletinIndexRoute: EnBulletinIndexRoute,
+}
+
+const EnBulletinRouteWithChildren = EnBulletinRoute._addFileChildren(
+  EnBulletinRouteChildren,
+)
+
+interface EnRouteChildren {
+  EnBulletinRoute: typeof EnBulletinRouteWithChildren
+  EnCenikRoute: typeof EnCenikRoute
+  EnKontaktRoute: typeof EnKontaktRoute
+  EnOdkazyRoute: typeof EnOdkazyRoute
+  EnOvereniDicRoute: typeof EnOvereniDicRoute
+  EnPodporujemeRoute: typeof EnPodporujemeRoute
+  EnSluzbyRoute: typeof EnSluzbyRoute
+  EnIndexRoute: typeof EnIndexRoute
+}
+
+const EnRouteChildren: EnRouteChildren = {
+  EnBulletinRoute: EnBulletinRouteWithChildren,
+  EnCenikRoute: EnCenikRoute,
+  EnKontaktRoute: EnKontaktRoute,
+  EnOdkazyRoute: EnOdkazyRoute,
+  EnOvereniDicRoute: EnOvereniDicRoute,
+  EnPodporujemeRoute: EnPodporujemeRoute,
+  EnSluzbyRoute: EnSluzbyRoute,
+  EnIndexRoute: EnIndexRoute,
+}
+
+const EnRouteWithChildren = EnRoute._addFileChildren(EnRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BulletinRoute: BulletinRouteWithChildren,
   CenikRoute: CenikRoute,
-  EnRoute: EnRoute,
+  EnRoute: EnRouteWithChildren,
   KontaktRoute: KontaktRoute,
   OdkazyRoute: OdkazyRoute,
   OvereniDicRoute: OvereniDicRoute,

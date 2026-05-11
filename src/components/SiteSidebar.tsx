@@ -1,11 +1,7 @@
 import { Link, useRouterState } from '@tanstack/react-router'
 import { SiteLogo } from './SiteLogo'
-import { NAV } from '../data/nav'
-
-function pathActive(pathname: string, to: string) {
-  if (to === '/') return pathname === '/'
-  return pathname === to || pathname.startsWith(`${to}/`)
-}
+import { LanguageSwitcher } from './LanguageSwitcher'
+import { navForPath, pathActiveNav } from '../data/nav'
 
 export function SiteSidebar() {
   const pathname = useRouterState({ select: (s) => s.location.pathname })
@@ -15,11 +11,11 @@ export function SiteSidebar() {
         <SiteLogo layout="sidebar" />
       </div>
       <nav>
-        {NAV.map((item) => (
+        {navForPath(pathname).map((item) => (
           <Link
             key={item.to}
             to={item.to}
-            data-active={pathActive(pathname, item.to) ? 'true' : 'false'}
+            data-active={pathActiveNav(pathname, item.to) ? 'true' : 'false'}
           >
             {item.label}
           </Link>
@@ -33,11 +29,7 @@ export function SiteSidebar() {
           alt="Komora daňových poradců"
         />
         <p className="small">Člen Komory daňových poradců ČR</p>
-        <p className="lang">
-          <span data-active="true">cs</span>
-          <span aria-hidden> / </span>
-          <Link to="/en">en</Link>
-        </p>
+        <LanguageSwitcher />
       </div>
     </aside>
   )

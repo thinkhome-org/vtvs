@@ -2,6 +2,8 @@ export type PriceRow = { desc: string; bezDph: string; sDph: string }
 
 export const PRICING_INTRO = 'Ceník prací platný od 1. ledna 2026'
 
+export const PRICING_INTRO_EN = 'Indicative price list effective from 1 January 2026'
+
 export const PRICING_ROWS: PriceRow[] = [
   { desc: 'odklad daňového přiznání', bezDph: '7 000 Kč', sDph: '8 470 Kč' },
   { desc: 'zpracování DPFO (§6,8,9,10)', bezDph: '2 500 Kč', sDph: '3 025 Kč' },

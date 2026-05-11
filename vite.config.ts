@@ -12,14 +12,26 @@ const staticPrerenderPaths = [
   '/podporujeme',
   '/kontakt',
   '/odkazy',
-  '/en',
   '/overeni-dic',
   '/bulletin',
 ] as const
 
+const enPrerenderPaths = [
+  '/en',
+  '/en/sluzby',
+  '/en/cenik',
+  '/en/podporujeme',
+  '/en/kontakt',
+  '/en/odkazy',
+  '/en/overeni-dic',
+  '/en/bulletin',
+] as const
+
 const prerenderPages = [
   ...staticPrerenderPaths.map((path) => ({ path })),
+  ...enPrerenderPaths.map((path) => ({ path })),
   ...bulletinIndex.map((b) => ({ path: b.href })),
+  ...bulletinIndex.map((b) => ({ path: `/en${b.href}` })),
 ]
 
 export default defineConfig({

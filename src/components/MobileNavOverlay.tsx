@@ -1,11 +1,7 @@
 import { Link, useRouterState } from '@tanstack/react-router'
 import { useEffect, useRef } from 'react'
-import { NAV } from '../data/nav'
-
-function pathActive(pathname: string, to: string) {
-  if (to === '/') return pathname === '/'
-  return pathname === to || pathname.startsWith(`${to}/`)
-}
+import { LanguageSwitcher } from './LanguageSwitcher'
+import { navForPath, pathActiveNav } from '../data/nav'
 
 type Props = { open: boolean; onClose: () => void }
 
@@ -66,20 +62,17 @@ export function MobileNavOverlay({ open, onClose }: Props) {
       aria-hidden={!open}
       data-open={open ? 'true' : 'false'}
     >
-      <button type="button" className="btn btn-secondary mobile-close" onClick={onClose}>
-        Zavřít
-      </button>
       <nav onClick={onClose}>
-        {NAV.map((item) => (
+        {navForPath(pathname).map((item) => (
           <Link
             key={item.to}
             to={item.to}
-            data-active={pathActive(pathname, item.to) ? 'true' : 'false'}
+            data-active={pathActiveNav(pathname, item.to) ? 'true' : 'false'}
           >
             {item.label}
           </Link>
         ))}
-        <Link to="/en">english</Link>
+        <LanguageSwitcher />
       </nav>
       <div className="bottom">
         <p className="small">Člen Komory daňových poradců ČR</p>
