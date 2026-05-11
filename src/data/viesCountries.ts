@@ -1,0 +1,33 @@
+/** EU / VIES member state codes for VAT validation (REST API expects ISO-3166 alpha-2). */
+
+export const viesCountryCodes: ReadonlyArray<{ code: string; name: string }> =
+  [
+    { code: 'AT', name: 'Rakousko' },
+    { code: 'BE', name: 'Belgie' },
+    { code: 'BG', name: 'Bulharsko' },
+    { code: 'CY', name: 'Kypr' },
+    { code: 'CZ', name: 'Česká republika' },
+    { code: 'DE', name: 'Německo' },
+    { code: 'DK', name: 'Dánsko' },
+    { code: 'EE', name: 'Estonsko' },
+    { code: 'ES', name: 'Španělsko' },
+    { code: 'FI', name: 'Finsko' },
+    { code: 'FR', name: 'Francie' },
+    { code: 'GR', name: 'Řecko' },
+    { code: 'HR', name: 'Chorvatsko' },
+    { code: 'HU', name: 'Maďarsko' },
+    { code: 'IE', name: 'Irsko' },
+    { code: 'IT', name: 'Itálie' },
+    { code: 'LT', name: 'Litva' },
+    { code: 'LU', name: 'Lucembursko' },
+    { code: 'LV', name: 'Lotyšsko' },
+    { code: 'MT', name: 'Malta' },
+    { code: 'NL', name: 'Nizozemsko' },
+    { code: 'PL', name: 'Polsko' },
+    { code: 'PT', name: 'Portugalsko' },
+    { code: 'RO', name: 'Rumunsko' },
+    { code: 'SE', name: 'Švédsko' },
+    { code: 'SI', name: 'Slovinsko' },
+    { code: 'SK', name: 'Slovensko' },
+    { code: 'XI', name: 'Severní Irsko (UK)' },
+  ]
