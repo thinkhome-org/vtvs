@@ -2,7 +2,6 @@ import { CtaPair } from "@/components/hero/CtaPair";
 import { HeroCopy } from "@/components/hero/HeroCopy";
 import { OfficePhoto } from "@/components/hero/OfficePhoto";
 import { PhoneRow } from "@/components/hero/PhoneRow";
-import { SloganSignature } from "@/components/hero/SloganSignature";
 import { Header } from "@/components/site/Header";
 import { site } from "@/content/site";
 
@@ -16,9 +15,7 @@ export default function Home() {
         <section className="hero" aria-labelledby="hero-heading">
           <div className="hero-copy">
             <HeroCopy />
-            <PhoneRow />
             <CtaPair />
-            <SloganSignature />
           </div>
 
           <OfficePhoto
@@ -26,14 +23,20 @@ export default function Home() {
             alt={photo.alt}
             fill
             className="hero-photo"
-            sizes="(max-width: 959px) 100vw, 58vw"
+            sizes="(max-width: 959px) 100vw, 60vw"
           />
+        </section>
+
+        <section id="kontakt" className="contact" aria-labelledby="contact-heading">
+          <h2 id="contact-heading" className="contact-heading">
+            {site.hero.cta.secondary}
+          </h2>
+          <PhoneRow />
         </section>
 
         <span id="sluzby" className="page-anchor" />
         <span id="onas" className="page-anchor" />
         <span id="cenik" className="page-anchor" />
-        <span id="kontakt" className="page-anchor" />
         <span id="en" className="page-anchor" />
       </main>
     </>

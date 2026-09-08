@@ -17,32 +17,58 @@ export function Header() {
   }
 
   return (
-    <header className="site-header">
-      <div className="site-header__inner">
-        <Link href="/" className="site-logo" aria-label="Daně VTVS — domů">
-          <Image
-            src={site.logo.src}
-            alt={site.logo.alt}
-            width={site.logo.width}
-            height={site.logo.height}
-            priority
-          />
-        </Link>
-
-        <button className="nav-toggle" type="button" onClick={openMenu}>
-          Menu
-        </button>
-
-        <Nav onNavigate={closeMenu} />
+    <>
+      <div className="nav-veil" aria-hidden="true">
+        <div className="nav-veil-stack">
+          <span />
+          <span />
+          <span />
+          <span />
+          <span />
+          <span />
+        </div>
       </div>
 
-      <dialog ref={dialogRef} className="nav-dialog" aria-label="Menu">
-        <button className="nav-dialog-close" type="button" onClick={closeMenu}>
-          Zavřít
-        </button>
-        <Nav onNavigate={closeMenu} />
-      </dialog>
-    </header>
+      <header className="site-header">
+        <div className="site-header__inner">
+          <Lang />
+
+          <Link href="/" className="site-logo" aria-label="Daně VTVS — domů">
+            <Image
+              src={site.logo.src}
+              alt={site.logo.alt}
+              width={site.logo.width}
+              height={site.logo.height}
+              priority
+            />
+          </Link>
+
+          <button className="nav-toggle" type="button" onClick={openMenu}>
+            Menu
+          </button>
+
+          <Nav onNavigate={closeMenu} />
+        </div>
+
+        <dialog ref={dialogRef} className="nav-dialog" aria-label="Menu">
+          <button className="nav-dialog-close" type="button" onClick={closeMenu}>
+            Zavřít
+          </button>
+          <Nav onNavigate={closeMenu} />
+          <Lang />
+        </dialog>
+      </header>
+    </>
+  );
+}
+
+function Lang() {
+  return (
+    <div className="site-lang">
+      <span className="lang-active">CZ</span>
+      <span className="lang-sep">/</span>
+      <a href="#en">EN</a>
+    </div>
   );
 }
 
@@ -58,11 +84,6 @@ function Nav({ onNavigate }: { onNavigate?: () => void }) {
           </li>
         ))}
       </ul>
-      <div className="site-lang">
-        <span className="lang-active">CZ</span>
-        <span className="lang-sep">/</span>
-        <a href="#en">EN</a>
-      </div>
     </nav>
   );
 }

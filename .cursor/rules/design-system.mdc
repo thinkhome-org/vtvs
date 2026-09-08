@@ -7,13 +7,13 @@ alwaysApply: true
 
 Follow [DESIGN.md](DESIGN.md). Space is used by the split, not by empty mastheads.
 
-**Type:** Satoshi 1.125rem / 500 for nav, lead, phones, actions. Newsreader optical ~72, roman, for H1. Slogan is Newsreader italic at the same size. Never italicize the H1. Never Inter, Roboto, Cormorant, Manrope. Do not antialias body text — it reads gray on paper.
+**Type:** Satoshi 1.125rem / 500 for nav, lead, phones. Newsreader optical ~72, roman, for H1. Never italicize the H1. Never Inter, Roboto, Cormorant, Manrope. Do not antialias body text — it reads gray on paper.
 
-**Color:** `--paper #EFEBE3`, `--ink #1C1915` for all reading text, `--mark #6E1F1C` on hover only. Do not fade body, lead, phones, slogan, or nav. No 0.75rem tracked captions.
+**Color:** `--paper #EFEBE3`, `--ink #1C1915` for all reading text, `--mark #6E1F1C` for the square hero Kontakt button, nav hover rectangles, and hover on phones. Do not fade body, lead, phones, or nav. No 0.75rem tracked captions.
 
-**Hero ≥960px:** `0.42fr / 1fr`, copy top-aligned. Photo takes the remaining width to the viewport edge. Not 50/50. Not vertically centered.
+**Hero ≥960px:** `2fr / 3fr` (40% copy / 60% photo), full viewport height. Photo bleeds to the top under the fixed nav. Copy top-aligned with φ spacing plus `--header-h`. Not 50/50. Not vertically centered. No slogan on the hero. Phones live in `#kontakt`.
 
-**Actions:** ink text links, underline on hover. Phones are the real CTA.
+**Actions:** one square wine **Kontakt** button on the hero. Phones stay in `#kontakt`.
 
 ```css
 /* ❌ */
@@ -24,8 +24,8 @@ Follow [DESIGN.md](DESIGN.md). Space is used by the split, not by empty masthead
 
 /* ✅ */
 .hero-lead, .ink-link, .slogan { color: var(--ink); }
-.hero { grid-template-columns: minmax(20rem, 0.42fr) 1fr; }
+.hero { grid-template-columns: minmax(20rem, 2fr) 3fr; }
 .hero-copy { justify-content: flex-start; }
 ```
 
-No eyebrows, meta lines, decorative rules, photo gradients, box-shadows, pill buttons, or entrance fades.
+No eyebrows, meta lines, decorative rules, photo gradients, box-shadows, pill buttons, or entrance fades. Header uses progressive blur, not a solid paper bar.

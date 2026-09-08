@@ -1,7 +1,7 @@
 export const site = {
   name: "Daně - VTVS s.r.o.",
   logo: {
-    src: "/brand/logo-vtvs.gif",
+    src: "/brand/logo-vtvs-no-bg.png",
     width: 150,
     height: 70,
     alt: "Daně VTVS",
