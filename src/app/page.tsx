@@ -1,8 +1,9 @@
 import { CtaPair } from "@/components/hero/CtaPair";
 import { HeroCopy } from "@/components/hero/HeroCopy";
 import { OfficePhoto } from "@/components/hero/OfficePhoto";
-import { PhoneRow } from "@/components/hero/PhoneRow";
+import { ContactFooter } from "@/components/site/ContactFooter";
 import { Header } from "@/components/site/Header";
+import { Services } from "@/components/site/Services";
 import { site } from "@/content/site";
 
 export default function Home() {
@@ -27,18 +28,11 @@ export default function Home() {
           />
         </section>
 
-        <section id="kontakt" className="contact" aria-labelledby="contact-heading">
-          <h2 id="contact-heading" className="contact-heading">
-            {site.hero.cta.secondary}
-          </h2>
-          <PhoneRow />
-        </section>
+        <Services />
 
-        <span id="sluzby" className="page-anchor" />
-        <span id="onas" className="page-anchor" />
-        <span id="cenik" className="page-anchor" />
         <span id="en" className="page-anchor" />
       </main>
+      <ContactFooter />
     </>
   );
 }

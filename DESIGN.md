@@ -25,7 +25,7 @@ Czech diacritics must render. Satoshi is self-hosted (`src/fonts`). Newsreader i
 | `--paper` | `#EFEBE3` | Page background |
 | `--ink` | `#1C1915` | All type |
 | `--mark` | `#6E1F1C` | Hero **Kontakt** button fill; hover on phones |
-| `--hair` | `#D6D0C6` | Reserved. Do not draw decorative rules with it |
+| `--hair` | `#D6D0C6` | 1px gaps in catalog grids. Not decorative rules under titles |
 
 `--quiet` is not used for copy. Selection inverts ink and paper. Oxblood is the filled **Kontakt** button on the hero — square corners, paper type. Not a page wash, not a gradient, not a pill.
 
@@ -56,9 +56,15 @@ No entrance animation. No press-scale on links. Honor `prefers-reduced-motion`.
 
 **Kontakt button.** `--mark` fill, `--paper` type, square. Padding `0.7rem 1.4rem`, type 1.25rem. Hover: `--ink` fill. Not a pill.
 
-**Contact.** Own section below the hero (`#kontakt`). Heading “Kontaktujte nás”, then the phone row.
+**Services.** Own section under the hero (`#sluzby`), before contact. Intro is the hero split: Newsreader “Služby” left, Satoshi lead right. Then a full-bleed 2-column catalog — `gap: 1px` on `--hair`, cells on `--paper`, last item spanning. Titles Newsreader `clamp(1.75rem, 2.8vw, 2.618rem)` at the top of the cell, origo lines at the bottom. No cards, bullets, shadows, or pills. Closing sentence under the grid.
 
-**Slogan.** Not on the hero.
+**About page.** Separate route `/o-nas`. Opening split like the hero, shorter (`min-height: 70svh`), desk photograph not the homepage room. H1 “O nás”, origo history in Satoshi. **Podporujeme** stays a catalog band. **Odkazy** is a conventional directory on the left; **Naši partneři** sits to the right as a 1px `--hair` catalog with Pohoda and Stormware logos. Nav **O nás** points here.
+
+**Contact / footer.** Site-wide `#kontakt` after the last content. Desktop split `2fr / 3fr`: copyable origo details left (phones, e-mail, office, seat, IČ/DIČ, copy icon, “Zkopírováno” in place), three-step letter form right (Předmět → Od koho → Zpráva). Square topic choices, underlined fields, wine **Odeslat** builds `mailto:info@vtvs.cz`. Colophon under the split: copyright, IČ, slogan in Newsreader italic. Same block on `/`, `/o-nas`, and `/cenik`.
+
+**Pricing.** Separate route `/cenik`. Letter under the fixed nav, no photo hero and no catalog cells. H1 “Orientační ceník”, origo lead, then compact tariff rows (item left, net/gross right, Satoshi, tabular nums). Groups in Newsreader `--space-m`: Daňová přiznání, Kontroly, Poradenství, Účetnictví, Mzdy. Nav **Ceník** points here.
+
+**Slogan.** Not on the hero. Allowed in the footer colophon, Newsreader italic.
 
 **Phone row.** One line per person: name, number. Same size, same ink. `tel:` links.
 
@@ -69,7 +75,7 @@ No entrance animation. No press-scale on links. Honor `prefers-reduced-motion`.
 - Small tracked captions, trust middot lines, or meta labels
 - Hamburger icons
 - Eyebrow text
-- Decorative horizontal rules
+- Decorative horizontal rules (catalog grids use 1px `--hair` gaps as structure, not rules under titles)
 - Vertical centering of hero copy
 - Equal 50/50 columns
 - Gradient overlays on photos

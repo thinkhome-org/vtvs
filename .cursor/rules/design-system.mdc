@@ -11,7 +11,7 @@ Follow [DESIGN.md](DESIGN.md). Space is used by the split, not by empty masthead
 
 **Color:** `--paper #EFEBE3`, `--ink #1C1915` for all reading text, `--mark #6E1F1C` for the square hero Kontakt button, nav hover rectangles, and hover on phones. Do not fade body, lead, phones, or nav. No 0.75rem tracked captions.
 
-**Hero ≥960px:** `2fr / 3fr` (40% copy / 60% photo), full viewport height. Photo bleeds to the top under the fixed nav. Copy top-aligned with φ spacing plus `--header-h`. Not 50/50. Not vertically centered. No slogan on the hero. Phones live in `#kontakt`.
+**Hero ≥960px:** `2fr / 3fr` (40% copy / 60% photo), full viewport height. Photo bleeds to the top under the fixed nav. Copy top-aligned with φ spacing plus `--header-h`. Not 50/50. Not vertically centered. No slogan on the hero. `#sluzby` sits under the hero as a 1px `--hair` catalog grid, then `#kontakt` as a 2fr/3fr contact footer (copyable details + three-step mailto form). Inner page `/o-nas` uses the same split, shorter; Podporujeme is a catalog band, Odkazy is a conventional directory list. `/cenik` is a compact letter tariff, not a catalog grid. The same contact footer closes inner pages.
 
 **Actions:** one square wine **Kontakt** button on the hero. Phones stay in `#kontakt`.
 
