@@ -1,0 +1,21 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "main": ".open-next/worker.js",
+  "name": "vtvs",
+  "compatibility_date": "2026-09-19",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "services": [
+    {
+      // Must match `name` above — OpenNext uses this to call the same Worker.
+      "binding": "WORKER_SELF_REFERENCE",
+      "service": "vtvs"
+    }
+  ],
+  "observability": {
+    "enabled": true
+  }
+}
