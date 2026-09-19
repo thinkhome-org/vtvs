@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { searchIndexingEnabled } from "./src/lib/search-indexing";
 
 const nextConfig: NextConfig = {
   turbopack: {
@@ -10,6 +11,15 @@ const nextConfig: NextConfig = {
         source: "/hero/:variant",
         destination: "/",
         permanent: false,
+      },
+    ];
+  },
+  async headers() {
+    if (searchIndexingEnabled) return [];
+    return [
+      {
+        source: "/:path*",
+        headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
       },
     ];
   },

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Newsreader } from "next/font/google";
 import localFont from "next/font/local";
+import { searchIndexingEnabled } from "@/lib/search-indexing";
 import "./globals.css";
 
 const satoshi = localFont({
@@ -22,6 +23,9 @@ export const metadata: Metadata = {
   title: "Daně - VTVS s.r.o. — účetnictví a daně od roku 1997",
   description:
     "O účetnictví, daně, mzdy a související povinnosti našich klientů se staráme již od roku 1997. Osobně, srozumitelně a s odborným zázemím daňového poradce.",
+  robots: searchIndexingEnabled
+    ? { index: true, follow: true }
+    : { index: false, follow: false },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
