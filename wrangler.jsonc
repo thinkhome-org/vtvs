@@ -4,6 +4,11 @@
   "name": "vtvs",
   "compatibility_date": "2026-09-19",
   "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "build": {
+    // Workers Builds runs `wrangler versions upload` with no OpenNext step.
+    // Generate the Worker first, unless a previous build already did.
+    "command": "test -f .open-next/worker.js || npm run build:worker"
+  },
   "assets": {
     "directory": ".open-next/assets",
     "binding": "ASSETS"
