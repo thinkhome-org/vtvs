@@ -50,19 +50,19 @@ No entrance animation. No press-scale on links. Honor `prefers-reduced-motion`.
 
 ## Recipes
 
-**Header.** Fixed over the split. CZ/EN left, logo centered (slightly larger), nav right — same bar as LDI. Progressive blur. Photograph on the right runs under the nav to the top of the viewport.
+**Header.** Fixed over the split. CZ/EN left, logo centered (slightly larger), nav right — same bar as LDI. Progressive blur. Photograph on the right runs under the nav to the top of the viewport. When the bar sits over a photograph, the logo and right-side nav (and the mobile Menu toggle) go white; CZ/EN stay `--ink`. Instant swap when the photo leaves the header strip.
 
 **Hero.** H1 → lead → wine **Kontakt** button (`#kontakt`). No slogan, no phones, no “Naše služby” pair. Photograph is a sibling column. Space after the H1 is `--space-xl`; before the button, `--space-2xl`.
 
 **Kontakt button.** `--mark` fill, `--paper` type, square. Padding `0.7rem 1.4rem`, type 1.25rem. Hover: `--ink` fill. Not a pill.
 
-**Services.** Own section under the hero (`#sluzby`), before contact. Intro is the hero split: Newsreader “Služby” left, Satoshi lead right. Then a full-bleed 2-column catalog — `gap: 1px` on `--hair`, cells on `--paper`, last item spanning. Titles Newsreader `clamp(1.75rem, 2.8vw, 2.618rem)` at the top of the cell, origo lines at the bottom. No cards, bullets, shadows, or pills. Closing sentence under the grid.
+**Services.** Own section under the hero (`#sluzby`), before contact. Intro is the hero split: Newsreader “Služby” left, Satoshi lead right. Then a two-column letter list of complete items (name + sentence in each cell), last item spanning. No catalog cells, cards, bullets, or pills.
 
 **About page.** Separate route `/o-nas`. Opening split like the hero, shorter (`min-height: 70svh`), desk photograph not the homepage room. H1 “O nás”, origo history in Satoshi. **Podporujeme** stays a catalog band. **Odkazy** is a conventional directory on the left; **Naši partneři** sits to the right as a 1px `--hair` catalog with Pohoda and Stormware logos. Nav **O nás** points here.
 
-**Contact / footer.** Site-wide `#kontakt` after the last content. Desktop split `2fr / 3fr`: copyable origo details left (phones, e-mail, office, seat, IČ/DIČ, copy icon, “Zkopírováno” in place), three-step letter form right (Předmět → Od koho → Zpráva). Square topic choices, underlined fields, wine **Odeslat** builds `mailto:info@vtvs.cz`. Colophon under the split: copyright, IČ, slogan in Newsreader italic. Same block on `/`, `/o-nas`, and `/cenik`.
+**Contact / footer.** Site-wide `#kontakt` after the last content. Desktop split `2fr / 3fr` with content in both columns: heading + phones and e-mail left; office, seat, IČ/DIČ and court right. Copy icon, “Zkopírováno” in place. No letter form. Colophon under the split: copyright, IČ, slogan in Newsreader italic. Same block on `/`, `/o-nas`, and `/cenik`.
 
-**Pricing.** Separate route `/cenik`. Letter under the fixed nav, no photo hero and no catalog cells. H1 “Orientační ceník”, origo lead, then compact tariff rows (item left, net/gross right, Satoshi, tabular nums). Groups in Newsreader `--space-m`: Daňová přiznání, Kontroly, Poradenství, Účetnictví, Mzdy. Nav **Ceník** points here.
+**Pricing.** Separate route `/cenik`. Letter under the fixed nav, no photo hero and no catalog cells. Intro uses the same `2fr / 3fr` split (H1 left, origo lead right), then full-width tariff rows (item left, net/gross right, Satoshi, tabular nums). Groups in Newsreader `--space-m`: Daňová přiznání, Kontroly, Poradenství, Účetnictví, Mzdy. Nav **Ceník** points here.
 
 **Slogan.** Not on the hero. Allowed in the footer colophon, Newsreader italic.
 

@@ -2,11 +2,13 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useRef } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import { site } from "@/content/site";
 
 export function Header() {
   const dialogRef = useRef<HTMLDialogElement>(null);
+  const headerRef = useRef<HTMLElement>(null);
+  const [overImage, setOverImage] = useState(false);
 
   function openMenu() {
     dialogRef.current?.showModal();
@@ -15,6 +17,29 @@ export function Header() {
   function closeMenu() {
     dialogRef.current?.close();
   }
+
+  useLayoutEffect(() => {
+    function update() {
+      const photo = document.querySelector(".hero-photo");
+      const header = headerRef.current;
+      if (!photo || !header) {
+        setOverImage(false);
+        return;
+      }
+
+      const headerH = header.getBoundingClientRect().height;
+      const rect = photo.getBoundingClientRect();
+      setOverImage(rect.top < headerH && rect.bottom > 0);
+    }
+
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    return () => {
+      window.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+    };
+  }, []);
 
   return (
     <>
@@ -29,7 +54,7 @@ export function Header() {
         </div>
       </div>
 
-      <header className="site-header">
+      <header ref={headerRef} className={overImage ? "site-header is-over-image" : "site-header"}>
         <div className="site-header__inner">
           <Lang />
 

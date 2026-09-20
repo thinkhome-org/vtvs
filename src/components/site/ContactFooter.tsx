@@ -1,28 +1,7 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useState } from "react";
 import { site } from "@/content/site";
-
-const topics = site.contact.form.topics;
-const fields = site.contact.form.fields;
-
-type FormState = {
-  topic: (typeof topics)[number] | "";
-  name: string;
-  company: string;
-  email: string;
-  phone: string;
-  message: string;
-};
-
-const emptyForm: FormState = {
-  topic: "",
-  name: "",
-  company: "",
-  email: "",
-  phone: "",
-  message: "",
-};
 
 export function ContactFooter() {
   const { heading, email, office, seat, ico, dic, court } = site.contact;
@@ -47,6 +26,11 @@ export function ContactFooter() {
             <li>
               <CopyRow label={email} value={email} href={`mailto:${email}`} />
             </li>
+          </ul>
+        </div>
+
+        <div className="contact-card">
+          <ul className="copy-list">
             <li>
               <CopyRow label={`${office.label}: ${office.display}`} value={office.display} />
             </li>
@@ -62,8 +46,6 @@ export function ContactFooter() {
           </ul>
           <p className="contact-court">{court}</p>
         </div>
-
-        <LetterForm />
       </div>
 
       <p className="colophon">
@@ -73,151 +55,6 @@ export function ContactFooter() {
         <span className="colophon-slogan">{site.slogan}</span>
       </p>
     </footer>
-  );
-}
-
-function LetterForm() {
-  const { form, email } = site.contact;
-  const [step, setStep] = useState(0);
-  const [data, setData] = useState<FormState>(emptyForm);
-
-  const total = form.steps.length;
-  const canNext =
-    step === 0
-      ? data.topic !== ""
-      : step === 1
-        ? data.name.trim() !== "" && data.email.trim() !== ""
-        : data.message.trim() !== "";
-
-  function update<K extends keyof FormState>(key: K, value: FormState[K]) {
-    setData((prev) => ({ ...prev, [key]: value }));
-  }
-
-  function submit(event: FormEvent) {
-    event.preventDefault();
-    if (!canNext) return;
-
-    const lines = [
-      `Předmět: ${data.topic}`,
-      `Jméno: ${data.name}`,
-      data.company ? `Firma: ${data.company}` : "",
-      `E-mail: ${data.email}`,
-      data.phone ? `Telefon: ${data.phone}` : "",
-      "",
-      data.message,
-    ].filter((line) => line !== "");
-
-    const href = `mailto:${email}?subject=${encodeURIComponent(String(data.topic))}&body=${encodeURIComponent(lines.join("\n"))}`;
-    window.location.href = href;
-  }
-
-  return (
-    <form className="letter-form" onSubmit={submit} noValidate>
-      <p className="letter-progress">
-        {step + 1} / {total}
-      </p>
-      <h3 className="letter-step">{form.steps[step]}</h3>
-
-      {step === 0 ? (
-        <div className="letter-topics" role="group" aria-label={form.steps[0]}>
-          {topics.map((topic) => (
-            <button
-              key={topic}
-              type="button"
-              className={data.topic === topic ? "letter-topic is-on" : "letter-topic"}
-              aria-pressed={data.topic === topic}
-              onClick={() => update("topic", topic)}
-            >
-              {topic}
-            </button>
-          ))}
-        </div>
-      ) : null}
-
-      {step === 1 ? (
-        <div className="letter-fields">
-          <label className="letter-field">
-            <span>{fields.name}</span>
-            <input
-              type="text"
-              name="name"
-              autoComplete="name"
-              value={data.name}
-              onChange={(e) => update("name", e.target.value)}
-              required
-            />
-          </label>
-          <label className="letter-field">
-            <span>{fields.company}</span>
-            <input
-              type="text"
-              name="company"
-              autoComplete="organization"
-              value={data.company}
-              onChange={(e) => update("company", e.target.value)}
-            />
-          </label>
-          <label className="letter-field">
-            <span>{fields.email}</span>
-            <input
-              type="email"
-              name="email"
-              autoComplete="email"
-              value={data.email}
-              onChange={(e) => update("email", e.target.value)}
-              required
-            />
-          </label>
-          <label className="letter-field">
-            <span>{fields.phone}</span>
-            <input
-              type="tel"
-              name="phone"
-              autoComplete="tel"
-              value={data.phone}
-              onChange={(e) => update("phone", e.target.value)}
-            />
-          </label>
-        </div>
-      ) : null}
-
-      {step === 2 ? (
-        <label className="letter-field">
-          <span>{fields.message}</span>
-          <textarea
-            name="message"
-            rows={6}
-            value={data.message}
-            onChange={(e) => update("message", e.target.value)}
-            required
-          />
-        </label>
-      ) : null}
-
-      <div className="letter-nav">
-        {step > 0 ? (
-          <button type="button" className="letter-back" onClick={() => setStep((s) => s - 1)}>
-            {form.back}
-          </button>
-        ) : (
-          <span />
-        )}
-        {step < total - 1 ? (
-          <button
-            type="button"
-            className="hero-btn letter-next"
-            disabled={!canNext}
-            onClick={() => setStep((s) => s + 1)}
-          >
-            {form.next}
-          </button>
-        ) : (
-          <button type="submit" className="hero-btn letter-next" disabled={!canNext}>
-            {form.send}
-          </button>
-        )}
-      </div>
-    </form>
   );
 }
 

@@ -316,6 +316,23 @@ img {
   }
 }
 
+.site-header.is-over-image .site-header__inner .site-logo img {
+  filter: brightness(0) invert(1);
+}
+
+.site-header.is-over-image .site-header__inner .site-nav a,
+.site-header.is-over-image .site-header__inner .nav-toggle {
+  color: #fff;
+}
+
+.site-header.is-over-image .site-header__inner .site-nav a:hover,
+.site-header.is-over-image .site-header__inner .site-nav a:focus-visible,
+.site-header.is-over-image .site-header__inner .nav-toggle:hover,
+.site-header.is-over-image .site-header__inner .nav-toggle:focus-visible {
+  background: var(--mark);
+  color: var(--paper);
+}
+
 .hero {
   display: grid;
   min-height: 100svh;
@@ -415,12 +432,20 @@ img {
 
 .contact-split {
   display: grid;
-  gap: var(--space-2xl);
+  gap: var(--space-l);
+}
+
+.contact-card {
+  min-width: 0;
+}
+
+.contact-heading + .copy-list {
+  margin-top: var(--space-l);
 }
 
 .copy-list {
   list-style: none;
-  margin: var(--space-l) 0 0;
+  margin: 0;
   padding: 0;
   display: grid;
   gap: 0.382rem;
@@ -462,131 +487,6 @@ img {
   font-size: 1.125rem;
   font-weight: 500;
   line-height: 1.55;
-}
-
-.letter-form {
-  min-width: 0;
-}
-
-.letter-progress {
-  margin: 0;
-  color: var(--ink);
-  font-size: 1.125rem;
-  font-weight: 500;
-}
-
-.letter-step {
-  margin: var(--space-m) 0 0;
-  font-family: var(--font-display), Georgia, serif;
-  font-size: var(--space-l);
-  font-weight: 500;
-  font-style: normal;
-  letter-spacing: -0.03em;
-  line-height: 1.05;
-  color: var(--ink);
-}
-
-.letter-topics {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.382rem;
-  margin-top: var(--space-l);
-}
-
-.letter-topic {
-  appearance: none;
-  border: 1px solid var(--ink);
-  border-radius: 0;
-  background: var(--paper);
-  color: var(--ink);
-  font: inherit;
-  font-weight: 500;
-  line-height: 1;
-  padding: 0.7rem 1.1rem;
-  cursor: pointer;
-}
-
-.letter-topic.is-on,
-.letter-topic:hover,
-.letter-topic:focus-visible {
-  background: var(--mark);
-  border-color: var(--mark);
-  color: var(--paper);
-}
-
-.letter-fields {
-  display: grid;
-  gap: var(--space-m);
-  margin-top: var(--space-l);
-}
-
-.letter-field {
-  display: grid;
-  gap: 0.382rem;
-  margin-top: var(--space-l);
-  color: var(--ink);
-  font-size: 1.125rem;
-  font-weight: 500;
-}
-
-.letter-fields .letter-field {
-  margin-top: 0;
-}
-
-.letter-field input,
-.letter-field textarea {
-  width: 100%;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0.35rem 0 0.45rem;
-  border: 0;
-  border-bottom: 1px solid var(--ink);
-  border-radius: 0;
-  background: var(--paper);
-  color: var(--ink);
-  font: inherit;
-  font-weight: 500;
-  resize: vertical;
-}
-
-.letter-field input:focus,
-.letter-field textarea:focus {
-  outline: none;
-  border-bottom-color: var(--mark);
-}
-
-.letter-nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-m);
-  margin-top: var(--space-xl);
-}
-
-.letter-back {
-  appearance: none;
-  border: 0;
-  background: none;
-  padding: 0;
-  color: var(--ink);
-  font: inherit;
-  font-weight: 500;
-  cursor: pointer;
-}
-
-.letter-back:hover,
-.letter-back:focus-visible {
-  color: var(--mark);
-}
-
-.letter-next {
-  margin-top: 0;
-}
-
-.letter-next:disabled {
-  background: var(--hair);
-  color: var(--ink);
-  cursor: not-allowed;
 }
 
 .colophon {
@@ -631,6 +531,38 @@ img {
 }
 
 .band-lead {
+  margin: 0;
+  color: var(--ink);
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1.55;
+}
+
+.service-list {
+  list-style: none;
+  margin: 0;
+  padding: 0 var(--page-pad) var(--space-2xl);
+  display: grid;
+  gap: var(--space-l);
+}
+
+.service-row {
+  display: grid;
+  gap: 0.382rem;
+}
+
+.service-name {
+  margin: 0;
+  font-family: var(--font-display), Georgia, serif;
+  font-size: var(--space-l);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: var(--ink);
+}
+
+.service-text {
   margin: 0;
   max-width: var(--measure);
   color: var(--ink);
@@ -802,7 +734,8 @@ img {
 }
 
 .pricing-intro {
-  max-width: var(--measure);
+  display: grid;
+  gap: var(--space-l);
 }
 
 .tariff {
@@ -885,9 +818,14 @@ img {
   }
 
   .contact-split {
-    grid-template-columns: minmax(18rem, 2fr) 3fr;
-    gap: var(--space-xl);
+    grid-template-columns: minmax(12rem, 2fr) 3fr;
     align-items: start;
+    gap: var(--space-xl);
+  }
+
+  .contact-heading {
+    font-size: var(--space-xl);
+    max-width: 14ch;
   }
 
   .colophon {
@@ -928,6 +866,15 @@ img {
     max-width: 14ch;
   }
 
+  .service-list {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+  }
+
+  .service-row:last-child {
+    grid-column: 1 / -1;
+  }
+
   .catalog {
     grid-template-columns: 1fr 1fr;
   }
@@ -965,6 +912,12 @@ img {
   .catalog-item--wide .catalog-fill {
     padding-left: var(--page-pad);
     padding-right: var(--page-pad);
+  }
+
+  .pricing-intro {
+    grid-template-columns: minmax(12rem, 2fr) 3fr;
+    align-items: end;
+    gap: var(--space-xl);
   }
 
   .tariff-head {

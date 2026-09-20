@@ -37,19 +37,7 @@ export const site = {
     dic: "CZ27418961",
     court: "Společnost je vedena u Městského soudu v Praze, C 111324.",
     form: {
-      next: "Další",
-      back: "Zpět",
-      send: "Odeslat",
       copied: "Zkopírováno",
-      steps: ["Předmět", "Od koho", "Zpráva"],
-      topics: ["Účetnictví", "Daně", "Mzdy", "Poradenství", "Jiné"],
-      fields: {
-        name: "Jméno",
-        company: "Firma",
-        email: "E-mail",
-        phone: "Telefon",
-        message: "Zpráva",
-      },
     },
   },
   trust: [
@@ -60,20 +48,29 @@ export const site = {
   ],
   services: {
     heading: "Služby",
-    lead: "Poskytujeme komplexní služby. Našim klientům nabízíme individuální přístup dle potřeb a možností.",
+    lead: "Účetnictví, daně a mzdy. Každému podle toho, co opravdu potřebuje.",
     items: [
-      { title: "Daňové poradenství" },
-      { title: "Účetnictví", text: "Vedení účetnictví." },
-      { title: "Daňová evidence", text: "Vedení daňové evidence." },
       {
-        title: "DPH",
-        text: "Zpracování DPH, kontrolního hlášení a souhrnného hlášení.",
+        title: "Účetnictví",
+        text: "Vedeme účetnictví pro firmy, které účtují v plném rozsahu.",
       },
-      { title: "Daně z příjmů", text: "Fyzických i právnických osob." },
-      { title: "Mzdy", text: "Vedení mezd." },
-      { title: "Zastupování na úřadech" },
+      {
+        title: "Daňová evidence",
+        text: "Pro OSVČ a menší provozy, které nevedou účetnictví.",
+      },
+      {
+        title: "Daně",
+        text: "Přiznání k dani z příjmů, DPH, kontrolní a souhrnná hlášení.",
+      },
+      {
+        title: "Mzdy",
+        text: "Vedení mezd a odvody za zaměstnance.",
+      },
+      {
+        title: "Poradenství",
+        text: "Daňový poradce, zastupování na úřadech a další věci kolem podnikání.",
+      },
     ],
-    closing: "A další věci související s podnikáním.",
   },
   about: {
     heading: "O nás",
